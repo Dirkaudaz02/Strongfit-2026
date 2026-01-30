@@ -89,8 +89,8 @@
             MapPinSmall: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 opacity-70"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>`,
             ChevronDown: (isOpen) => html`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=${`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}><polyline points="6 9 12 15 18 9"></polyline></svg>`,
             UserIcon: html`<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
-            AlertIcon: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-yellow-400 animate-pulse"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
-            Eye: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-400 animate-pulse"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+            AlertIcon: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-yellow-900 animate-pulse"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+            Eye: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-white animate-pulse"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
         };
 
         const getEventStatus = (dayStr, startStr, endStr, now, athleteHeatTime = null) => {
@@ -100,23 +100,23 @@
             const [startH, startM] = startStr.split(":").map(Number);
             const startDate = new Date(`${isoDate}T${startStr}:00`);
             
-            // Calculamos la fecha de término real del bloque
+            // Calculate Block End Date
             let endDate = null;
             if (endStr && endStr !== "---") {
                 const [endH, endM] = endStr.split(":").map(Number);
                 endDate = new Date(`${isoDate}T${endStr}:00`);
             } else {
-                // Si no tiene fin, asumimos 1 hora (o hasta que cambie el día)
+                // Default 1 hour if unknown
                 endDate = new Date(startDate.getTime() + 60 * 60000);
             }
 
             const nowTime = now.getTime();
             const warningWindow = 15 * 60 * 1000;
 
-            // 1. Verificar si YA PASÓ (Ahora > Fin del Bloque)
+            // 1. Past
             if (nowTime > endDate.getTime()) return "past";
 
-            // 2. Alerta de Calentamiento (Prioridad Alta si es Heat Específico)
+            // 2. Warning (Specific Heat)
             if (athleteHeatTime) {
                  const [heatH, heatM] = athleteHeatTime.split(":").map(Number);
                  const heatDate = new Date(`${isoDate}T${athleteHeatTime}:00`);
@@ -125,12 +125,12 @@
                  }
             } 
             
-            // 3. Verificar si está ACTIVO (Entre Inicio y Fin del Bloque)
+            // 3. Active (Currently running)
             if (nowTime >= startDate.getTime() && nowTime <= endDate.getTime()) {
                 return "active";
             }
 
-            // 4. Alerta de Bloque General (si no hay heat específico o no estamos en ventana de heat)
+            // 4. Alerta de Bloque General
             if (!athleteHeatTime && nowTime >= (startDate.getTime() - warningWindow) && nowTime < startDate.getTime()) {
                 return "warn";
             }
@@ -166,14 +166,13 @@
             } else if (status === "warn") {
                 statusClass = "status-warn ring-1 ring-yellow-500 animate-pulse";
                 badgeStatus = html`
-                    <div class="absolute -top-2 -right-2 bg-yellow-500 text-black text-[9px] font-black px-2 py-0.5 rounded shadow-lg animate-bounce flex items-center z-10">
-                        ${Icons.AlertIcon} CALENTAMIENTO
+                    <div class="absolute top-0 right-0 bg-yellow-500 text-black text-[10px] font-black px-3 py-1 rounded-bl-xl shadow-lg animate-bounce flex items-center z-10">
+                        ${Icons.AlertIcon} CALENTAR
                     </div>`;
             } else if (status === "active") {
-                // Nuevo estilo para evento activo: Borde verde y opacidad completa
                 statusClass = "status-active ring-2 ring-green-500 opacity-100";
                 badgeStatus = html`
-                    <div class="absolute -top-2 -right-2 bg-green-600 text-white text-[9px] font-black px-2 py-0.5 rounded shadow-lg animate-pulse flex items-center z-10">
+                    <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl shadow-lg animate-pulse flex items-center z-10">
                         ${Icons.Eye} EN PISTA
                     </div>`;
             }

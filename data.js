@@ -60,7 +60,6 @@ export const DAY_ISO_MAP = {
 // 5. CRONOGRAMA COMPLETO (Base de datos FULL)
 export const RAW_SCHEDULE = [
     // === VIERNES 30 ===
-    // Conditioning (Evento 1)
     { d: "Viernes 30", c: "Master +35 Scaled H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "08:00", te: "08:37", type: "heat", h: [{n:"Heat 1",t:"08:00"},{n:"Heat 2",t:"08:14"},{n:"Heat 3",t:"08:28"}] },
     { d: "Viernes 30", c: "Master +40 H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "08:40", te: "09:17", type: "heat", h: [{n:"Heat 1",t:"08:40"},{n:"Heat 2",t:"08:55"},{n:"Heat 3",t:"09:08"}] },
     { d: "Viernes 30", c: "Master +45 H", s: "Conditioning (Ev 1)", p: "Heat Único", t: "09:22", te: "09:31", type: "heat", h: [] },
@@ -71,7 +70,6 @@ export const RAW_SCHEDULE = [
     { d: "Viernes 30", c: "Scaled M", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "12:51", te: "13:26", type: "heat", h: [] },
     { d: "Viernes 30", c: "Advance M", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "13:30", te: "14:05", type: "heat", h: [] },
     { d: "Viernes 30", c: "Rx M", s: "Conditioning (Ev 1)", p: "Heats 1-2", t: "14:09", te: "14:31", type: "heat", h: [] },
-    // BREAK 14:31 - 15:02
     { d: "Viernes 30", c: "Elite H", s: "Conditioning (Ev 1)", p: "Heats 1-2", t: "15:02", te: "15:28", type: "heat", h: [] },
     { d: "Viernes 30", c: "Rx H", s: "Conditioning (Ev 1)", p: "Heats 1-4", t: "15:32", te: "16:22", type: "heat", h: [{n:"Heat 1",t:"15:32"},{n:"Heat 2",t:"15:44"},{n:"Heat 3",t:"16:00"},{n:"Heat 4",t:"16:13"}] },
     { d: "Viernes 30", c: "Advance H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "16:30", te: "17:05", type: "heat", h: [] },
@@ -79,7 +77,6 @@ export const RAW_SCHEDULE = [
     { d: "Viernes 30", c: "Rookie H", s: "Conditioning (Ev 1)", p: "Heats 1-5", t: "18:02", te: "19:03", type: "heat", h: [] },
     { d: "Viernes 30", c: "Amateur H", s: "Conditioning (Ev 1)", p: "Heats 1-6", t: "19:10", te: "20:25", type: "heat", h: [{n:"Heat 1",t:"19:10"},{n:"Heat 2",t:"19:23"},{n:"Heat 3",t:"19:36"},{n:"Heat 4",t:"19:49"},{n:"Heat 5",t:"20:02"},{n:"Heat 6",t:"20:16"}] },
 
-    // Coca-Cola (Evento 2)
     { d: "Viernes 30", c: "Amateur M", s: "Coca-Cola (Ev 2)", p: "Heats 1-5", t: "08:20", te: "09:01", type: "heat", h: [] },
     { d: "Viernes 30", c: "Rookie M", s: "Coca-Cola (Ev 2)", p: "Heats 1-5", t: "09:05", te: "09:46", type: "heat", h: [] },
     { d: "Viernes 30", c: "Scaled M", s: "Coca-Cola (Ev 2)", p: "Heats 1-3", t: "09:50", te: "10:13", type: "heat", h: [] },
@@ -90,7 +87,6 @@ export const RAW_SCHEDULE = [
     { d: "Viernes 30", c: "Master +40 H", s: "Coca-Cola (Ev 2)", p: "Heats 1-3", t: "11:47", te: "12:10", type: "heat", h: [] },
     { d: "Viernes 30", c: "Master +45 H", s: "Coca-Cola (Ev 2)", p: "Heat Único", t: "12:14", te: "12:19", type: "heat", h: [] },
     { d: "Viernes 30", c: "Master +35 Rx H", s: "Coca-Cola (Ev 2)", p: "Heats 1-3", t: "12:25", te: "12:50", type: "heat", h: [{n:"Heat 1",t:"12:25"},{n:"Heat 2",t:"12:34"},{n:"Heat 3",t:"12:45"}] },
-    // BREAK 12:50 - 13:30
     { d: "Viernes 30", c: "Tríos Rookie H", s: "Coca-Cola (Ev 2)", p: "Heats 1-2", t: "13:30", te: "13:46", type: "heat", h: [] },
     { d: "Viernes 30", c: "Tríos Rookie M", s: "Coca-Cola (Ev 2)", p: "Heats 1-2", t: "13:51", te: "14:07", type: "heat", h: [] },
     { d: "Viernes 30", c: "Tríos Scaled Mixto", s: "Coca-Cola (Ev 2)", p: "Heats 1-2", t: "14:11", te: "14:27", type: "heat", h: [] },
@@ -101,14 +97,12 @@ export const RAW_SCHEDULE = [
     { d: "Viernes 30", c: "Advance H", s: "Coca-Cola (Ev 2)", p: "Heats 1-3", t: "17:00", te: "17:23", type: "heat", h: [] },
     { d: "Viernes 30", c: "Rx H", s: "Coca-Cola (Ev 2)", p: "Heats 1-4", t: "17:27", te: "17:59", type: "heat", h: [{n:"Heat 1",t:"17:27"},{n:"Heat 2",t:"17:36"},{n:"Heat 3",t:"17:45"},{n:"Heat 4",t:"17:54"}] },
     { d: "Viernes 30", c: "Elite H", s: "Coca-Cola (Ev 2)", p: "Heats 1-2", t: "18:05", te: "18:30", type: "heat", h: [] },
-    // Evento 1 Tríos
     { d: "Viernes 30", c: "Tríos Rookie H", s: "Coca-Cola (Ev 1)", p: "Heats 1-2", t: "18:40", te: "19:00", type: "heat", h: [] },
     { d: "Viernes 30", c: "Tríos Rookie M", s: "Coca-Cola (Ev 1)", p: "Heats 1-2", t: "19:04", te: "19:24", type: "heat", h: [] },
     { d: "Viernes 30", c: "Tríos Scaled Mixto", s: "Coca-Cola (Ev 1)", p: "Heats 1-2", t: "19:28", te: "19:48", type: "heat", h: [] },
     { d: "Viernes 30", c: "Tríos Rx H", s: "Coca-Cola (Ev 1)", p: "Heat Único", t: "19:52", te: "20:00", type: "heat", h: [] },
 
     // === SÁBADO 31 ===
-    // Conditioning (Evento 4)
     { d: "Sábado 31", c: "Amateur M", s: "Conditioning (Ev 4)", p: "Heats 1-5", t: "08:00", te: "08:58", type: "heat", h: [] },
     { d: "Sábado 31", c: "Rookie M", s: "Conditioning (Ev 4)", p: "Heats 1-5", t: "09:05", te: "10:00", type: "heat", h: [] },
     { d: "Sábado 31", c: "Scaled M", s: "Conditioning (Ev 4)", p: "Heats 1-3", t: "10:04", te: "10:34", type: "heat", h: [] },
@@ -118,27 +112,23 @@ export const RAW_SCHEDULE = [
     { d: "Sábado 31", c: "Tríos Rookie M", s: "Conditioning (Ev 4)", p: "Heats 1-2", t: "12:04", te: "12:23", type: "heat", h: [] },
     { d: "Sábado 31", c: "Tríos Scaled Mixto", s: "Conditioning (Ev 4)", p: "Heats 1-2", t: "12:28", te: "12:47", type: "heat", h: [] },
     { d: "Sábado 31", c: "Tríos Rx H", s: "Conditioning (Ev 4)", p: "Heat Único", t: "12:52", te: "13:00", type: "heat", h: [] },
-    // BREAK 13:00 - 13:50
     { d: "Sábado 31", c: "Amateur H", s: "Conditioning (Ev 4)", p: "Heats 1-6", t: "14:00", te: "15:11", type: "heat", h: [{n:"Heat 1",t:"14:00"},{n:"Heat 2",t:"14:13"},{n:"Heat 3",t:"14:25"},{n:"Heat 4",t:"14:38"},{n:"Heat 5",t:"14:50"},{n:"Heat 6",t:"15:03"}] },
     { d: "Sábado 31", c: "Rookie H", s: "Conditioning (Ev 4)", p: "Heats 1-5", t: "15:14", te: "16:11", type: "heat", h: [] },
     { d: "Sábado 31", c: "Scaled H", s: "Conditioning (Ev 4)", p: "Heats 1-4", t: "16:16", te: "17:00", type: "heat", h: [{n:"Heat 1",t:"16:16"},{n:"Heat 2",t:"16:28"},{n:"Heat 3",t:"16:40"},{n:"Heat 4",t:"16:52"}] },
     { d: "Sábado 31", c: "Advance H", s: "Conditioning (Ev 4)", p: "Heats 1-3", t: "17:05", te: "17:35", type: "heat", h: [] },
     { d: "Sábado 31", c: "Rx H", s: "Conditioning (Ev 4)", p: "Heats 1-4", t: "17:40", te: "18:25", type: "heat", h: [{n:"Heat 1",t:"17:40"},{n:"Heat 2",t:"17:52"},{n:"Heat 3",t:"18:05"},{n:"Heat 4",t:"18:17"}] },
     { d: "Sábado 31", c: "Elite H", s: "Conditioning (Ev 4)", p: "Heats 1-2", t: "18:35", te: "19:00", type: "heat", h: [] },
-    // Evento 3 Tríos
     { d: "Sábado 31", c: "Tríos Rookie H", s: "Conditioning (Ev 3)", p: "Heats 1-2", t: "19:10", te: "19:31", type: "heat", h: [] },
     { d: "Sábado 31", c: "Tríos Rookie M", s: "Conditioning (Ev 3)", p: "Heats 1-2", t: "19:35", te: "19:54", type: "heat", h: [] },
     { d: "Sábado 31", c: "Tríos Scaled Mixto", s: "Conditioning (Ev 3)", p: "Heats 1-2", t: "19:59", te: "20:18", type: "heat", h: [] },
     { d: "Sábado 31", c: "Tríos Rx H", s: "Conditioning (Ev 3)", p: "Heat Único", t: "20:22", te: "20:30", type: "heat", h: [] },
 
-    // Coca-Cola (Evento 3)
     { d: "Sábado 31", c: "Amateur H", s: "Coca-Cola (Ev 3)", p: "Heats 1-6", t: "08:30", te: "09:26", type: "heat", h: [{n:"Heat 1",t:"08:30"},{n:"Heat 2",t:"08:40"},{n:"Heat 3",t:"08:50"},{n:"Heat 4",t:"09:00"},{n:"Heat 5",t:"09:10"},{n:"Heat 6",t:"09:20"}] },
     { d: "Sábado 31", c: "Rookie H", s: "Coca-Cola (Ev 3)", p: "Heats 1-5", t: "09:30", te: "10:16", type: "heat", h: [] },
     { d: "Sábado 31", c: "Scaled H", s: "Coca-Cola (Ev 3)", p: "Heats 1-4", t: "10:20", te: "10:56", type: "heat", h: [{n:"Heat 1",t:"10:20"},{n:"Heat 2",t:"10:30"},{n:"Heat 3",t:"10:40"},{n:"Heat 4",t:"10:50"}] },
     { d: "Sábado 31", c: "Advance H", s: "Coca-Cola (Ev 3)", p: "Heats 1-3", t: "11:00", te: "11:26", type: "heat", h: [] },
     { d: "Sábado 31", c: "Rx H", s: "Coca-Cola (Ev 3)", p: "Heats 1-4", t: "11:30", te: "12:06", type: "heat", h: [{n:"Heat 1",t:"11:30"},{n:"Heat 2",t:"11:40"},{n:"Heat 3",t:"11:50"},{n:"Heat 4",t:"12:00"}] },
     { d: "Sábado 31", c: "Elite H", s: "Coca-Cola (Ev 3)", p: "Heats 1-2", t: "12:15", te: "12:31", type: "heat", h: [] },
-    // BREAK 12:31 - 13:20
     { d: "Sábado 31", c: "Amateur M", s: "Coca-Cola (Ev 3)", p: "Heats 1-5", t: "13:20", te: "14:06", type: "heat", h: [] },
     { d: "Sábado 31", c: "Rookie M", s: "Coca-Cola (Ev 3)", p: "Heats 1-5", t: "14:10", te: "14:56", type: "heat", h: [] },
     { d: "Sábado 31", c: "Scaled M", s: "Coca-Cola (Ev 3)", p: "Heats 1-3", t: "15:00", te: "15:26", type: "heat", h: [] },
@@ -149,8 +139,6 @@ export const RAW_SCHEDULE = [
     { d: "Sábado 31", c: "Master +40 H", s: "Coca-Cola (Ev 3)", p: "Heats 1-3", t: "17:10", te: "17:36", type: "heat", h: [] },
     { d: "Sábado 31", c: "Master +45 H", s: "Coca-Cola (Ev 3)", p: "Heat Único", t: "17:40", te: "17:46", type: "heat", h: [] },
     { d: "Sábado 31", c: "Master +35 Rx H", s: "Coca-Cola (Ev 3)", p: "Heats 1-3", t: "17:50", te: "18:16", type: "heat", h: [{n:"Heat 1",t:"17:50"},{n:"Heat 2",t:"18:00"},{n:"Heat 3",t:"18:10"}] },
-    
-    // Evento 4 Masters
     { d: "Sábado 31", c: "Master +35 M", s: "Coca-Cola (Ev 4)", p: "Heats 1-2", t: "18:25", te: "18:41", type: "heat", h: [] },
     { d: "Sábado 31", c: "Master +35 Scaled H", s: "Coca-Cola (Ev 4)", p: "Heats 1-3", t: "18:45", te: "19:11", type: "heat", h: [{n:"Heat 1",t:"18:45"},{n:"Heat 2",t:"18:55"},{n:"Heat 3",t:"19:05"}] },
     { d: "Sábado 31", c: "Master +40 H", s: "Coca-Cola (Ev 4)", p: "Heats 1-3", t: "19:15", te: "19:41", type: "heat", h: [] },
@@ -158,7 +146,7 @@ export const RAW_SCHEDULE = [
     { d: "Sábado 31", c: "Master +35 Rx H", s: "Coca-Cola (Ev 4)", p: "Heats 1-3", t: "19:55", te: "20:21", type: "heat", h: [{n:"Heat 1",t:"19:55"},{n:"Heat 2",t:"20:05"},{n:"Heat 3",t:"20:15"}] },
 
     // === DOMINGO 01 ===
-    // Conditioning (Evento X)
+    // ESCENARIO CONDITIONING (EVENTO X)
     { d: "Domingo 01", c: "Tríos Rookie H", s: "Conditioning (Ev X)", p: "Heats 1-2", t: "08:30", te: "08:48", type: "heat", h: [] },
     { d: "Domingo 01", c: "Tríos Rookie M", s: "Conditioning (Ev X)", p: "Heats 1-2", t: "08:52", te: "09:10", type: "heat", h: [] },
     { d: "Domingo 01", c: "Tríos Scaled Mixto", s: "Conditioning (Ev X)", p: "Heats 1-2", t: "09:15", te: "09:33", type: "heat", h: [] },
@@ -171,7 +159,7 @@ export const RAW_SCHEDULE = [
     { d: "Domingo 01", c: "Master +45 H", s: "Conditioning (Ev X)", p: "Heat Único", t: "12:30", te: "12:36", type: "heat", h: [] },
     { d: "Domingo 01", c: "Master +35 M", s: "Conditioning (Ev X)", p: "Heats 1-2", t: "12:40", te: "12:56", type: "heat", h: [] },
     { d: "Domingo 01", c: "Rx M", s: "Conditioning (Ev X)", p: "Heats 1-2", t: "13:00", te: "13:16", type: "heat", h: [] },
-    
+
     // FINALES CONDITIONING
     { d: "Domingo 01", c: "Amateur M", s: "Conditioning", p: "FINAL", t: "14:15", te: "---", type: "final" },
     { d: "Domingo 01", c: "Rookie M", s: "Conditioning", p: "FINAL", t: "14:30", te: "---", type: "final" },
@@ -190,7 +178,7 @@ export const RAW_SCHEDULE = [
     { d: "Domingo 01", c: "Rx H", s: "Conditioning", p: "FINAL", t: "18:10", te: "---", type: "final" },
     { d: "Domingo 01", c: "Elite H", s: "Conditioning", p: "FINAL", t: "18:30", te: "---", type: "final" },
 
-    // Coca-Cola (Evento 5)
+    // ESCENARIO COCA-COLA (EVENTO 5)
     { d: "Domingo 01", c: "Master +35 Scaled H", s: "Coca-Cola (Ev 5)", p: "Heats 1-3", t: "08:00", te: "08:18", type: "heat", h: [{n:"Heat 1",t:"08:00"},{n:"Heat 2",t:"08:07"},{n:"Heat 3",t:"08:14"}] },
     { d: "Domingo 01", c: "Master +40 H", s: "Coca-Cola (Ev 5)", p: "Heats 1-3", t: "08:22", te: "08:40", type: "heat", h: [] },
     { d: "Domingo 01", c: "Master +45 H", s: "Coca-Cola (Ev 5)", p: "Heat Único", t: "08:45", te: "08:49", type: "heat", h: [] },

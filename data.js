@@ -58,12 +58,11 @@ export const DAY_ISO_MAP = {
 };
 
 // 5. CRONOGRAMA COMPLETO (Base de datos FULL)
-// Se han agregado todos los eventos de los cronogramas visuales para que "Ver Todo" funcione real.
 export const RAW_SCHEDULE = [
     // === VIERNES 30 ===
     // Conditioning (Evento 1)
     { d: "Viernes 30", c: "Master +35 Scaled H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "08:00", te: "08:37", type: "heat", h: [{n:"Heat 1",t:"08:00"},{n:"Heat 2",t:"08:14"},{n:"Heat 3",t:"08:28"}] },
-    { d: "Viernes 30", c: "Master +40 H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "08:40", te: "09:17", type: "heat", h: [] },
+    { d: "Viernes 30", c: "Master +40 H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "08:40", te: "09:17", type: "heat", h: [{n:"Heat 1",t:"08:40"},{n:"Heat 2",t:"08:55"},{n:"Heat 3",t:"09:08"}] },
     { d: "Viernes 30", c: "Master +45 H", s: "Conditioning (Ev 1)", p: "Heat Único", t: "09:22", te: "09:31", type: "heat", h: [] },
     { d: "Viernes 30", c: "Master +35 Rx H", s: "Conditioning (Ev 1)", p: "Heats 1-3", t: "09:36", te: "10:10", type: "heat", h: [{n:"Heat 1",t:"09:36"},{n:"Heat 2",t:"09:49"},{n:"Heat 3",t:"10:01"}] },
     { d: "Viernes 30", c: "Master +35 M", s: "Conditioning (Ev 1)", p: "Heats 1-2", t: "10:15", te: "10:37", type: "heat", h: [] },

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#09090b">
     <meta name="description" content="Cronograma Oficial Nación Ranger - StrongFit Games 2026">
-    <title>Nación Ranger Operaciones 2026</title>
+    <title>Nación Ranger Ops 2026</title>
     
     <!-- Tailwind CSS (CDN Configurado) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -23,16 +23,11 @@
                     animation: {
                         fadeIn: 'fadeIn 0.3s ease-out forwards',
                         pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'border-pulse': 'borderPulse 2s infinite',
                     },
                     keyframes: {
                         fadeIn: {
                             '0%': { opacity: '0', transform: 'translateY(10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        borderPulse: {
-                            '0%, 100%': { borderColor: 'rgba(34, 197, 94, 0.5)' },
-                            '50%': { borderColor: 'rgba(34, 197, 94, 1)' },
                         }
                     }
                 }
@@ -47,17 +42,11 @@
     <style>
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
-        
         body { background-color: #09090b; font-family: 'Chakra Petch', sans-serif; } 
-        
-        /* Estados */
         .status-past { filter: grayscale(100%) opacity(0.4); transition: filter 0.5s; }
         .status-warn { border-color: #eab308; box-shadow: 0 0 15px rgba(234, 179, 8, 0.2); z-index: 10; }
         .status-active { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); z-index: 10; }
-        
-        @media (prefers-reduced-motion: reduce) {
-            * { animation: none !important; transition: none !important; }
-        }
+        @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
     </style>
 </head>
 <body class="text-white min-h-screen bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
@@ -68,15 +57,9 @@
         import { createElement, useState, useEffect, useMemo } from 'https://esm.sh/react@18.2.0';
         import { createRoot } from 'https://esm.sh/react-dom@18.2.0/client';
         import htm from 'https://esm.sh/htm@3.1.1';
-        
-        // IMPORTAMOS LOS DATOS DESDE data.js
         import { LINKS, ATHLETE_DATA, CATEGORY_STYLES, DAY_ISO_MAP, RAW_SCHEDULE } from './data.js';
 
         const html = htm.bind(createElement);
-
-        // ==========================================
-        //              COMPONENTES UI
-        // ==========================================
 
         const Icons = {
             Instagram: html`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>`,
@@ -90,33 +73,25 @@
             ChevronDown: (isOpen) => html`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class=${`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}><polyline points="6 9 12 15 18 9"></polyline></svg>`,
             UserIcon: html`<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>`,
             AlertIcon: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-yellow-900 animate-pulse"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
-            Eye: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-white animate-pulse"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+            Eye: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-1 text-green-400 animate-pulse"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>`,
+            Globe: html`<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>`
         };
 
         const getEventStatus = (dayStr, startStr, endStr, now, athleteHeatTime = null) => {
             const isoDate = DAY_ISO_MAP[dayStr];
             if (!isoDate) return "future";
-
             const [startH, startM] = startStr.split(":").map(Number);
             const startDate = new Date(`${isoDate}T${startStr}:00`);
-            
-            // Calculate Block End Date
             let endDate = null;
             if (endStr && endStr !== "---") {
                 const [endH, endM] = endStr.split(":").map(Number);
                 endDate = new Date(`${isoDate}T${endStr}:00`);
             } else {
-                // Default 1 hour if unknown
                 endDate = new Date(startDate.getTime() + 60 * 60000);
             }
-
             const nowTime = now.getTime();
             const warningWindow = 15 * 60 * 1000;
-
-            // 1. Past
             if (nowTime > endDate.getTime()) return "past";
-
-            // 2. Warning (Specific Heat)
             if (athleteHeatTime) {
                  const [heatH, heatM] = athleteHeatTime.split(":").map(Number);
                  const heatDate = new Date(`${isoDate}T${athleteHeatTime}:00`);
@@ -124,17 +99,8 @@
                      return "warn";
                  }
             } 
-            
-            // 3. Active (Currently running)
-            if (nowTime >= startDate.getTime() && nowTime <= endDate.getTime()) {
-                return "active";
-            }
-
-            // 4. Alerta de Bloque General
-            if (!athleteHeatTime && nowTime >= (startDate.getTime() - warningWindow) && nowTime < startDate.getTime()) {
-                return "warn";
-            }
-
+            if (nowTime >= startDate.getTime() && nowTime <= endDate.getTime()) return "active";
+            if (!athleteHeatTime && nowTime >= (startDate.getTime() - warningWindow) && nowTime < startDate.getTime()) return "warn";
             return "future";
         };
 
@@ -161,73 +127,45 @@
             let statusClass = "";
             let badgeStatus = null;
             
-            if (status === "past") {
-                statusClass = "status-past";
-            } else if (status === "warn") {
+            if (status === "past") statusClass = "status-past";
+            else if (status === "warn") {
                 statusClass = "status-warn ring-1 ring-yellow-500 animate-pulse";
-                badgeStatus = html`
-                    <div class="absolute top-0 right-0 bg-yellow-500 text-black text-[10px] font-black px-3 py-1 rounded-bl-xl shadow-lg animate-bounce flex items-center z-10">
-                        ${Icons.AlertIcon} CALENTAR
-                    </div>`;
+                badgeStatus = html`<div class="absolute top-0 right-0 bg-yellow-500 text-black text-[10px] font-black px-3 py-1 rounded-bl-xl shadow-lg animate-bounce flex items-center z-10">${Icons.AlertIcon} CALENTAR</div>`;
             } else if (status === "active") {
                 statusClass = "status-active ring-2 ring-green-500 opacity-100";
-                badgeStatus = html`
-                    <div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl shadow-lg animate-pulse flex items-center z-10">
-                        ${Icons.Eye} EN PISTA
-                    </div>`;
+                badgeStatus = html`<div class="absolute top-0 right-0 bg-green-600 text-white text-[10px] font-black px-3 py-1 rounded-bl-xl shadow-lg animate-pulse flex items-center z-10">${Icons.Eye} EN PISTA</div>`;
             }
 
-            const cardBgClass = isCocaCola 
-                ? "bg-gradient-to-br from-red-950 via-black to-zinc-900 border-red-900/40" 
-                : "bg-zinc-900 border-zinc-800";
-
-            const eventId = `${event.d}-${event.c}-${event.t}`;
+            const cardBgClass = isCocaCola ? "bg-gradient-to-br from-red-950 via-black to-zinc-900 border-red-900/40" : "bg-zinc-900 border-zinc-800";
+            
+            // Usar estilo por defecto si no es una categoría nuestra
+            const currentStyle = styles || CATEGORY_STYLES["default"];
 
             return html`
-                <div 
-                    key=${eventId}
-                    class=${`relative rounded-xl overflow-hidden border transition-all duration-300 animate-fadeIn group ${cardBgClass} ${statusClass} ${isFinal ? "ring-1 ring-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.1)]" : "shadow-md"} ${hasHeats ? "cursor-pointer active:scale-[0.98]" : ""}`}
-                    onClick=${() => hasHeats && setIsOpen(!isOpen)}
-                    role="button"
-                    tabIndex="0"
-                    aria-expanded=${isOpen}
-                    onKeyDown=${(e) => { if(hasHeats && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); setIsOpen(!isOpen); } }}
-                >
+                <div onClick=${() => hasHeats && setIsOpen(!isOpen)} class=${`relative rounded-xl overflow-hidden border transition-all duration-300 animate-fadeIn group ${cardBgClass} ${statusClass} ${isFinal ? "ring-1 ring-yellow-500/50 shadow-[0_0_20px_rgba(234,179,8,0.1)]" : "shadow-md"} ${hasHeats ? "cursor-pointer active:scale-[0.98]" : ""}`}>
                     ${badgeStatus}
-                    <div class=${`absolute left-0 top-0 bottom-0 w-1.5 ${styles.bar} opacity-80`}></div>
-                    
+                    <div class=${`absolute left-0 top-0 bottom-0 w-1.5 ${currentStyle.bar} opacity-80`}></div>
                     <div class="p-3.5 pl-5">
                         <div class="flex justify-between items-center mb-1.5">
-                            <span class=${`text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider border border-white/5 ${styles.bg_badge} ${styles.text_badge}`}>
+                            <span class=${`text-[9px] font-black px-2 py-0.5 rounded uppercase tracking-wider border border-white/5 ${currentStyle.bg_badge} ${currentStyle.text_badge}`}>
                                 ${event.c.replace(" H", "")}
                             </span>
                             ${isFinal && html`<div class="bg-yellow-900/30 px-2 py-0.5 rounded-full border border-yellow-700/30"><span class="text-[9px] font-black text-yellow-400 uppercase tracking-widest animate-pulse">FINAL</span></div>`}
                         </div>
-
-                        ${athleteInfo && html`
-                            <div class=${`flex items-center text-xs font-medium mb-3 opacity-90 ${styles.text}`}>
-                                ${Icons.UserIcon}
-                                <span class="font-bold tracking-wide">${athleteInfo.names}</span>
-                            </div>
-                        `}
-
+                        ${athleteInfo && html`<div class=${`flex items-center text-xs font-medium mb-3 opacity-90 ${currentStyle.text}`}>${Icons.UserIcon}<span class="font-bold tracking-wide">${athleteInfo.names}</span></div>`}
                         <div class="flex items-center justify-between gap-3">
                             <div class="flex-1 min-w-0">
                                 <div class="flex items-center gap-2">
                                     <h3 class="font-bold text-base leading-tight truncate text-white font-military tracking-wide">${event.p}</h3>
                                     ${hasHeats && html`<div class=${`text-zinc-500 transform transition-transform ${isOpen ? "rotate-180" : ""}`}>${Icons.ChevronDown(isOpen)}</div>`}
                                 </div>
-                                <div class=${`flex items-center text-[10px] font-bold uppercase tracking-wide truncate mt-1 ${isCocaCola ? "text-red-400" : "text-zinc-400"}`}>
-                                    ${Icons.MapPinSmall}
-                                    <span class="truncate">${event.s}</span>
-                                </div>
+                                <div class=${`flex items-center text-[10px] font-bold uppercase tracking-wide truncate mt-1 ${isCocaCola ? "text-red-400" : "text-zinc-400"}`}>${Icons.MapPinSmall}<span class="truncate">${event.s}</span></div>
                             </div>
                             <div class="text-right whitespace-nowrap pl-3 border-l border-white/5">
                                 <div class="flex items-center justify-end text-lg font-black tracking-tight text-white font-military">${event.t}</div>
                                 <div class="text-zinc-500 text-[9px] font-mono font-bold">${event.te !== "---" ? event.te : ""}</div>
                             </div>
                         </div>
-
                         ${hasHeats && isOpen && html`
                             <div class="mt-4 pt-3 border-t border-white/5 animate-fadeIn">
                                 <div class="grid grid-cols-1 gap-1.5">
@@ -243,8 +181,8 @@
                                             });
                                         }
                                         return html`
-                                            <div key=${i} class=${`flex justify-between items-center px-3 py-2 rounded-md border border-white/5 ${isAthleteHeat ? styles.heat_highlight : 'bg-black/20'}`}>
-                                                <span class=${`text-xs font-bold ${isAthleteHeat ? 'text-white' : styles.text_badge}`}>
+                                            <div key=${i} class=${`flex justify-between items-center px-3 py-2 rounded-md border border-white/5 ${isAthleteHeat ? currentStyle.heat_highlight : 'bg-black/20'}`}>
+                                                <span class=${`text-xs font-bold ${isAthleteHeat ? 'text-white' : currentStyle.text_badge}`}>
                                                     ${displayHeatName} ${isAthleteHeat && "🔥"}
                                                 </span>
                                                 <span class="text-xs font-mono text-white/80">${heat.t}</span>
@@ -260,7 +198,7 @@
         }
 
         function App() {
-            const [selectedCategory, setSelectedCategory] = useState("all");
+            const [selectedCategory, setSelectedCategory] = useState("nacion"); // Default to just our team
             const [selectedDay, setSelectedDay] = useState("all");
             const [currentTime, setCurrentTime] = useState(new Date());
 
@@ -270,10 +208,21 @@
             }, []);
 
             const filteredEvents = useMemo(() => {
-                return RAW_SCHEDULE.filter(event => 
-                    (selectedCategory === "all" || event.c === selectedCategory) &&
-                    (selectedDay === "all" || event.d === selectedDay)
-                );
+                return RAW_SCHEDULE.filter(event => {
+                    // Filter logic:
+                    // 1. Day match always required (unless "all")
+                    const dayMatch = selectedDay === "all" || event.d === selectedDay;
+                    if (!dayMatch) return false;
+
+                    // 2. Category logic
+                    if (selectedCategory === "all") return true; // Show EVERYTHING
+                    if (selectedCategory === "nacion") {
+                        // Only show categories defined in ATHLETE_DATA
+                        return !!ATHLETE_DATA[event.c];
+                    }
+                    // Specific category selected
+                    return event.c === selectedCategory;
+                });
             }, [selectedCategory, selectedDay]);
 
             const eventsByDay = useMemo(() => {
@@ -325,8 +274,19 @@
 
                         <!-- Filtros Atleta -->
                         <div class="flex space-x-2 overflow-x-auto hide-scroll pt-1">
-                            <button onClick=${() => setSelectedCategory("all")} class=${`whitespace-nowrap px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wide transition-all border ${selectedCategory === "all" ? "bg-zinc-100 text-black border-white" : "bg-transparent text-zinc-600 border-zinc-800"}`}>Todos</button>
+                            <!-- Botón SOLO EQUIPO (Default) -->
+                            <button onClick=${() => setSelectedCategory("nacion")} class=${`whitespace-nowrap px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wide transition-all border ${selectedCategory === "nacion" ? "bg-red-600 text-white border-red-500 shadow-lg" : "bg-transparent text-zinc-600 border-zinc-800"}`}>
+                                ${Icons.UserIcon} SOLO EQUIPO
+                            </button>
+
+                            <!-- Botón VER TODO (Nuevo) -->
+                            <button onClick=${() => setSelectedCategory("all")} class=${`whitespace-nowrap px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wide transition-all border ${selectedCategory === "all" ? "bg-zinc-100 text-black border-white" : "bg-transparent text-zinc-600 border-zinc-800"}`}>
+                                ${Icons.Globe} CRONOGRAMA GENERAL
+                            </button>
+
+                            <!-- Filtros Individuales -->
                             ${Object.entries(CATEGORY_STYLES).map(([catName, styles]) => {
+                                if (catName === "default") return null;
                                 let btnLabel = ATHLETE_DATA[catName] ? ATHLETE_DATA[catName].names.split(" ")[0] : catName.replace(" H", "");
                                 if(catName === "Amateur H") btnLabel = "Pablo & José"; 
 
@@ -397,3 +357,5 @@
     </script>
 </body>
 </html>
+
+

@@ -92,6 +92,8 @@ export const RAW_SCHEDULE = [
     { d: "Sábado 31", c: "Rx H", s: "Coca-Cola (Ev 3)", p: "Heats 1-4", t: "11:30", te: "12:06", type: "heat", h: [{n:"Heat 1",t:"11:30 - 11:36"},{n:"Heat 2",t:"11:40 - 11:46"},{n:"Heat 3",t:"11:50 - 11:56"},{n:"Heat 4",t:"12:00 - 12:06"}] },
     { d: "Sábado 31", c: "Amateur H", s: "Conditioning (Ev 4)", p: "Heats 1-6", t: "14:00", te: "15:11", type: "heat", h: [{n:"Heat 1",t:"14:00 - 14:08"},{n:"Heat 2",t:"14:13 - 14:21"},{n:"Heat 3",t:"14:25 - 14:33"},{n:"Heat 4",t:"14:38 - 14:46"},{n:"Heat 5",t:"14:50 - 14:58"},{n:"Heat 6",t:"15:03 - 15:11"}] },
     { d: "Sábado 31", c: "Scaled H", s: "Conditioning (Ev 4)", p: "Heats 1-4", t: "16:16", te: "17:00", type: "heat", h: [{n:"Heat 1",t:"16:16 - 16:24"},{n:"Heat 2",t:"16:28 - 16:36"},{n:"Heat 3",t:"16:40 - 16:48"},{n:"Heat 4",t:"16:52 - 17:00"}] },
+    // NUEVO EVENTO AGREGADO: Master +35 Scaled (Evento 3)
+    { d: "Sábado 31", c: "Master +35 Scaled H", s: "Coca-Cola (Ev 3)", p: "Heats 1-3", t: "16:40", te: "17:06", type: "heat", h: [{n:"Heat 1",t:"16:40 - 16:46"},{n:"Heat 2",t:"16:50 - 16:56"},{n:"Heat 3",t:"17:00 - 17:06"}] },
     { d: "Sábado 31", c: "Rx H", s: "Conditioning (Ev 4)", p: "Heats 1-4", t: "17:40", te: "18:25", type: "heat", h: [{n:"Heat 1",t:"17:40 - 17:48"},{n:"Heat 2",t:"17:52 - 18:00"},{n:"Heat 3",t:"18:05 - 18:13"},{n:"Heat 4",t:"18:17 - 18:25"}] },
     { d: "Sábado 31", c: "Master +35 Rx H", s: "Coca-Cola (Ev 3)", p: "Heats 1-3", t: "17:50", te: "18:16", type: "heat", h: [{n:"Heat 1",t:"17:50 - 17:56"},{n:"Heat 2",t:"18:00 - 18:06"},{n:"Heat 3",t:"18:10 - 18:16"}] },
     { d: "Sábado 31", c: "Master +35 Scaled H", s: "Coca-Cola (Ev 4)", p: "Heats 1-3", t: "18:45", te: "19:11", type: "heat", h: [{n:"Heat 1",t:"18:45 - 18:51"},{n:"Heat 2",t:"18:55 - 19:01"},{n:"Heat 3",t:"19:05 - 19:11"}] },
@@ -112,3 +114,5 @@ export const RAW_SCHEDULE = [
     { d: "Domingo 01", c: "Scaled H", s: "Conditioning", p: "FINAL", t: "17:30", te: "---", type: "final" },
     { d: "Domingo 01", c: "Rx H", s: "Conditioning", p: "FINAL", t: "18:10", te: "---", type: "final" },
 ];
+
+
